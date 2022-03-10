@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<style>
+    .myButton {
+        box-shadow: inset 0px 1px 0px 0px #bbdaf7;
+        background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+        background-color: #79bbff;
+        border-radius: 6px;
+        border: 1px solid #84bbf3;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 6px 24px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #528ecc;
+        text-align: left;
+        height: 5%;
+        width: 35%;
+    }
+
+    .myButton:hover {
+        background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+        background-color: #378de5;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+
+
+    .buttonClass {
+        font-size: 15px;
+        font-family: Arial;
+        width: 60px;
+        height: 35px;
+        border-width: 1px;
+        color: #333333;
+        border-color: #ffaa22;
+        font-weight: bold;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        box-shadow: 0px 1px 0px 0px #fff6af;
+        text-shadow: 0px 1px 0px #ffee66;
+        background: linear-gradient(#ffec64, #ffab23);
+    }
+
+    .buttonClass:hover {
+        background: linear-gradient(#ffab23, #ffec64);
+    }
+
+
+    .box {
+        color: #000000;
+        padding: 0px;
+        display: none;
+        margin-top: 0px;
+    }
+
+    .m1 {
+        background: #fff;
+    }
+
+    .m2 {
+        background: #fff;
+    }
+
+    .m3 {
+        background: #fff;
+    }
+
+    .m4 {
+        background: #fff;
+    }
+
+    .R100 {
+        background: #fff;
+    }
+
+    .R200 {
+        background: #fff;
+    }
+
+    .R300 {
+        background: #fff;
+    }
+
+    .R400 {
+        background: #fff;
+    }
+
+    .info {
+        background-color: #e7f3fe;
+        border-left: 6px solid #2196F3;
+        width: 100%;
+        height: 25px;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var changeValue;
+        $("select").change(function () {
+            $(this).find("option:selected").each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                    $(".box").not("." + optionValue).hide();
+                    $("." + optionValue).show();
+                } else {
+                    $(".box").hide();
+                }
+                changeValue = optionValue;
+
+            });
+            if (changeValue == "m1") {
+                SccValue();
+            }
+            if (changeValue == "m2") {
+                BccValue();
+            }
+            if (changeValue == "m3") {
+                FccValue();
+            }
+        }).change();
+
+
+    });
+
+
+    function d1() {
+        var d = document.getElementById("ddselect");
+        var displaytext = d.options[d.selectedIndex].text;
+        document.getElementById("txtvalue").value = displaytext;
+    }
+
+    function R() {
+        var r = document.getElementById("rvalue");
+        var displaytext = r.options[r.selectedIndex].text;
+        document.getElementById("resitvalue").value = displaytext;
+    }
+
+
+    var randomnumber;
+    var dot2 = 0;
+    var prev_handler = window.onload;
+    window.onload = function () {
+        if (prev_handler) {
+            prev_handler();
+        }
+        var minNumber = 2; // The minimum number you want
+        var maxNumber = 4; // The maximum number you want
+        randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber); // Generates random number
+        document.getElementById("myNumber").value = randomnumber; // Sets content of <div> to number
+
+        var dst = document.getElementById("two");
+        dst.value = randomnumber + " : " + "";
+        return false; // Returns false just to tidy everything up
+    }
+
+    function random() {
+        var min = 40.5348; //Change this value
+        var max = 50.8944; //Change this value
+        min = Math.ceil(min);
+        max = Math.floor(max);
+
+        var my_num = Math.floor(Math.random() * (max - min + 1)) + min;
+        document.getElementById("d4").innerHTML = my_num;
+        document.getElementById("d").innerHTML = my_num;
+
+    }
+
+
+    function check() {
+        let val = document.getElementById("valcheck").value;
+        //document.getElementById("vc").innerHTML = val;
+
+        if (val == 1) {
+            document.getElementById("v1").innerHTML = val;
+            alert("Input Value is Correct! ");
+        }
+        else if (val == 2) {
+            document.getElementById("v2").innerHTML = val;
+            alert("Input Value is Correct! ");
+        }
+        else if (val == 3) {
+            document.getElementById("v3").innerHTML = val;
+            alert("Input Value is Correct! ");
+        }
+        else {
+            alert("Input Value is Incorrect! ");
+        }
+    }
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+<body scroll="no" style="overflow: hidden" style="background-color: #b9dde4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-lg-12 bg">
+                <h3 align="center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    <b>Resistance Temperature Detector
+                    </b>
+                </h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-lg-6">
+                <div class="card" style="padding-bottom: 0;">
+                    <p class="card-header bg-primary text-white" style="font-size: 20px;"> <strong> Observation
+                            Table : Level 1 </strong>
+                    </p>
+
+                    <div class="card-body" style="padding-bottom: 0;" align="left">
+                        <p style="font-size: 16px;"><b>Resistance at 0<sup>o</sup>C (R<sub>0</sub>) : </b>
+                            <select id="rvalue" onchange="R();">
+                                <option>Select</option>
+                                <option value="R100">100</option>
+                                <option value="R200">200</option>
+                                <option value="R300">300</option>
+                                <option value="R400">400</option>
+                            </select>
+                        </p>
+
+                        <p></p>
+                        <p style="font-size: 16px;"><b>Select Material : </b>
+                            <select id="ddselect" onchange="d1();">
+                                <option>Select</option>
+                                <option value="m1">Platinum</option>
+                                <option value="m2">Nickel</option>
+                                <option value="m3">Copper</option>
+                                <option value="m4">Balco</option>
+                            </select>
+                        </p>
+                        <p></p>
+
+                        <div class="m1 box">
+                            <div class="info">
+                                <p align="center" style="font-size: 16px;">
+                                    <b>
+                                        α value = 0.00385, Temperature range = -200 to 850
+                                    </b>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="m2 box">
+                            <div class="info">
+                                <p align="center" style="font-size: 16px;">
+                                    <b>
+                                        α value = 0.00672, Temperature range = -100 to 260
+                                    </b>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="m3 box">
+                            <div class="info">
+                                <p align="center" style="font-size: 16px;">
+                                    <b>
+                                        α value = 0.00427, Temperature range = -100 to 260
+                                    </b>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="m4 box">
+                            <div class="info">
+                                <p align="center" style="font-size: 16px;">
+                                    <b>
+                                        α value = 0.00518, Temperature range = -100 to 204
+                                    </b>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <p></p>
+                        <div>
+                            <p><b>Get Temperature in <sup>o</sup>C : </b>
+                                <button onclick="random()" id="d4" class="buttonClass">Click</button>
+                            </p>
+                        </div>
+
+                        <p></p>
+                        <div>
+                            <span><b>Enter the Output Value R<sub>t</sub></b></span>
+                            <span>
+                                <input type="number" name="valcheck" id="valcheck" />
+                            </span>
+                        </div>
+
+                        <div style="margin-top: 5px;">
+                            <button onclick="check()" class="myButton" style="margin-left: 5%;">1. Check </button>
+                            <button class="myButton" style="margin-left: 15%;">2. Set Next Value</button>
+                        </div>
+
+
+                        <div style="margin-top: 5px;">
+                            <button class="myButton" style="margin-left: 5%;">3. Plot Graph</button>
+                            <button class="myButton" style="margin-left: 15%;">4. Level 2</button>
+                        </div>
+
+                        <p></p>
+
+
+                        <table class="table" border="1">
+                            <thead class="thead-dark ">
+                                <tr align="center">
+
+                                    <th> Attributes</th>
+                                    <th> Value</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>Selected Resistance</td>
+                                    <td> <input type="text" id="resitvalue" height="10px" width="40px" readonly />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Selected Material</td>
+                                    <td><input type="text" id="txtvalue" height="10px" width="40px" readonly /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Measured Temperature in <sup>o</sup>C</td>
+                                    <td><span>
+                                            Temperature :
+                                        </span>
+                                        <span id="d"> </span>
+                                        <span> <sup>o</sup>C</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Your Answers</td>
+                                    <td>
+                                        <span>Answer 1 = </span>
+                                        <span id="v1"></span>
+
+                                        <p></p>
+                                        <span>Answer 2 = </span>
+                                        <span id="v2"></span>
+
+                                        <p></p>
+                                        <span>Answer 3 = </span>
+                                        <span id="v3"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-lg-6">
+                <div class="card" style="margin-bottom: 10px;">
+                    <p class="card-header bg-primary text-white" style="font-size: 20px;"> <strong> Diagram</strong></p>
+                    <div class="card-body">
+
+                        <img src="img.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
